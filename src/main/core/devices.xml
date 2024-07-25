@@ -1,0 +1,21 @@
+<liquidpay>
+    <totaldevices>2</totaldevices>
+    <devices>
+        <device>
+            <devicename>iPhone 15 Pro Max</devicename>
+            <phonenumber>123456786</phonenumber>
+            <code>111111</code>
+            <appiumport>4726</appiumport>
+            <profilename>iphone15Promax</profilename>
+            <platformname>ios</platformname>
+        </device>
+        <device>
+            <devicename>Pixel XL</devicename>
+            <phonenumber>12345678</phonenumber>
+            <code>111111</code>
+            <appiumport>4725</appiumport>
+            <profilename>androidPixel</profilename>
+            <platformname>android</platformname>
+        </device>
+    </devices>
+</liquidpay>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression" thread-count="8" parallel="tests">
+    <listeners>
+        <listener class-name="base.TestSuiteListener" />
+    </listeners>
+    <test name="Run Regression Tests on iphone 15 pro max simulator" enabled="true">
+        <parameter name="device" value="0" />
+        <classes>
+            <class name="moboapp" >
+                <methods>
+                    <include name="TransferOutSuccessfully" />
+                    <include name="VerifyTransferOutFailed" />
+                    <include name="VerifyExceedBalanceAmount" />
+                    <include name="VerifyDailyTransferLimitExceeded" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Pixel 3a" enabled="false">
+        <parameter name="device" value="1"/>
+        <classes>
+            <class name="liquidpay.tests.PayNowDuitNow" >
+            <methods>
+                <include name="TransferOutSuccessfully" />
+                <include name="VerifyTransferOutFailed" />
+                <include name="VerifyExceedBalanceAmount" />
+                <include name="VerifyDailyTransferLimitExceeded" />
+            </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Webapp Test" enabled="false">
+        <parameter name="browserName" value="safari"/>
+        <classes>
+            <class name="cpp.tests.TestCPP">
+            <methods>
+                <include name="Login" />
+            </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

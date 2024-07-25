@@ -1,0 +1,11 @@
+{
+  "platformVersion": "17.2",
+  "platformName": "iOS",
+  "deviceName": "iPhone 15 pro Max Simulator",
+  "automationName": "XCUITest",
+  "showIOSLog": "true",
+  "xcodeOrgId": "LNCXH44UGY",
+  "xcodeSigningId": "iPhone Developer",
+  "wdaLocalPort": "8400",
+  "useNewWDA": "true"
+}
