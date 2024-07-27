@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 
 import static base.Initiatives.*;
 
-public class TestSuiteListener implements ITestListener, IAnnotationTransformer {
+public class TestListener implements ITestListener, IAnnotationTransformer {
     @Override
     public void onTestStart (ITestResult result) {
         ITestListener.super.onTestStart(result);
