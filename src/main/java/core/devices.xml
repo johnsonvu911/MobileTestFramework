@@ -1,4 +1,4 @@
-<liquidpay>
+<testrocket>
     <totaldevices>2</totaldevices>
     <devices>
         <device>
@@ -9,11 +9,11 @@
             <deviceversion>17.0</deviceversion>
         </device>
         <device>
-            <devicename>Pixel XL</devicename>
+            <devicename>Pixel 8 Pro</devicename>
             <appiumport>4725</appiumport>
             <profilename>androidPixel</profilename>
             <deviceos>android</deviceos>
-            <deviceversion>14.0</deviceversion>
+            <deviceversion>35.0</deviceversion>
         </device>
     </devices>
-</liquidpay>
+</testrocket>

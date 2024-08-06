@@ -1,20 +1,21 @@
-package base;
+package core.base;
 
-import datasets.AppInfo;
+import android.content.Context;
+import core.datasets.AppInfo;
+import core.helpers.AppHelper;
 import org.testng.annotations.*;
 import java.io.File;
 import java.util.Map;
 
 public class TestBase extends Initiatives {
-    public static final String testDeviceIndex = "0"; // For debug purposes.
-    protected static Map<String, String> appCofigs = Utils.getPropertyValues("AppConfig");
-    protected static String appName = AppInfo.getValue(AppInfo.APP_NAME).trim();
-    protected static String bundleId = AppInfo.getValue(AppInfo.BUNDLE_ID).trim();
-    protected static String appPackage = AppInfo.getValue(AppInfo.APP_PACKAGE).trim();
-    protected static String appActivity = AppInfo.getValue(AppInfo.APP_ACTIVITY).trim();
-    protected static String appBuildNameIOS = AppInfo.getValue(AppInfo.APP_BUILD_NAME_IOS).trim();
-    protected static String appBuildNameAndroid = AppInfo.getValue(AppInfo.APP_BUILD_NAME_ANDROID).trim();
+    public static final String testDeviceIndex = "1"; // For debug purposes.
+    protected String bundleId = "";
+    protected String appPackage = "";
+    protected String appActivity = "";
 
+    public TestBase() {
+        super();
+    }
     @BeforeTest(groups = {"smokeTest", "regression"})
     @AfterTest(groups = {"smokeTest", "regression"})
     @Parameters({"device"})
@@ -24,6 +25,14 @@ public class TestBase extends Initiatives {
     @BeforeMethod(groups = {"smokeTest", "regression"})
     @Parameters({"device"})
     public void startMobileSession(@Optional(testDeviceIndex) String device) {
+        // Load AppConfig.properties file for usage in somewhere else.
+        AppInfo.loadProperties();
+        String appName = AppInfo.getValue(AppInfo.APP_NAME).trim();
+        bundleId = AppInfo.getValue(AppInfo.BUNDLE_ID).trim();
+        appPackage = AppInfo.getValue(AppInfo.APP_PACKAGE).trim();
+        appActivity = AppInfo.getValue(AppInfo.APP_ACTIVITY).trim();
+        String appBuildNameIOS = AppInfo.getValue(AppInfo.APP_BUILD_NAME_IOS).trim();
+        String appBuildNameAndroid = AppInfo.getValue(AppInfo.APP_BUILD_NAME_ANDROID).trim();
         String searchKeyword;
         String pathToAppFile;
         String bundlePackageId;
@@ -37,14 +46,14 @@ public class TestBase extends Initiatives {
         } else {
             searchKeyword = appPackage;
             pathToAppFile = Utils.getAbsolutePath(pathToAndroidBuildFile);
-            bundlePackageId = appName;
+            bundlePackageId = appPackage;
         }
         setupMobileEnvironment(device, searchKeyword, bundlePackageId, appActivity, pathToAppFile);
     }
 
-    @AfterMethod(groups = {"smokeTest", "regression"}, alwaysRun = true)
+//    @AfterMethod(groups = {"smokeTest", "regression"})
     @Parameters({"device"})
     public void endMobileSession(@Optional(testDeviceIndex) String device) {
-        terminateApp(device, bundleId, appPackage);
+            terminateApp(device, bundleId, appPackage);
     }
 }

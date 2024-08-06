@@ -1,4 +1,4 @@
-package base;
+package core.base;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import static base.Initiatives.*;
+import static core.base.Initiatives.*;
 
 public class TestListener implements ITestListener, IAnnotationTransformer {
     @Override

@@ -1,4 +1,4 @@
-package base;
+package core.base;
 
 import com.google.gson.Gson;
 import org.w3c.dom.Document;

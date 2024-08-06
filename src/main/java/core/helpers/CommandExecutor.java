@@ -1,6 +1,6 @@
-package helpers;
+package core.helpers;
 
-import base.Initiatives;
+import core.base.Initiatives;
 
 import javax.annotation.Nullable;
 import java.io.BufferedReader;

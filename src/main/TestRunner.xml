@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="regression" thread-count="8" parallel="tests">
+    <listeners>
+        <listener class-name="core.base.TestListener" />
+    </listeners>
+    <test name="Run Regression Tests on iphone 15 pro max simulator" enabled="false">
+        <parameter name="device" value="0" />
+        <classes>
+            <class name="GoogleChat.testcases.DirectChat" >
+                <methods>
+                    <include name="method_name" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Run test on Pixel 8 Pro" enabled="true">
+        <parameter name="device" value="1"/>
+        <classes>
+            <class name="GoogleChat.testcases.DirectChat" >
+                <methods>
+                    <include name="StartNewDirectChat" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

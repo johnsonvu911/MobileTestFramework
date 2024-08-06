@@ -108,3 +108,17 @@ Optionally, run the Appium Doctor to check if everything is configured properly.
 ````
 $ appium-doctor
 ````
+
+***Install Appium Gestures plugin***
+
+Installation - Server
+
+Install the plugin using Appium's plugin CLI, either as a named plugin or via NPM:
+````
+$ appium plugin install --source=npm appium-gestures-plugin
+````
+
+The plugin will not be active unless turned on when invoking the Appium server:
+````
+$ appium --use-plugins=gestures
+````

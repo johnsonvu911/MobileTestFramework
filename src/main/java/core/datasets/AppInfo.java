@@ -1,4 +1,4 @@
-package datasets;
+package core.datasets;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,11 +1,11 @@
-package base;
+package core.base;
 
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import datasets.AppInfo;
-import helpers.ReportHelper;
+import core.datasets.AppInfo;
+import core.helpers.ReportHelper;
 import org.jetbrains.annotations.NotNull;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -25,9 +25,9 @@ public class Reporter extends ReportHelper {
     @AfterTest
     public void markupReport() {
         report.setSystemInfo("Environment", "QA");
-        report.setSystemInfo("Platform", platformName);
-        report.setSystemInfo("Platform Version", deviceVersion);
-        report.setSystemInfo("Device Name", deviceName);
+        report.setSystemInfo("Platform", Initiatives.platformName);
+        report.setSystemInfo("Platform Version", Initiatives.deviceVersion);
+        report.setSystemInfo("Device Name", Initiatives.deviceName);
         report.setSystemInfo("App Name", AppInfo.getValue(AppInfo.APP_NAME));
     }
     @AfterTest(dependsOnMethods = {"markupReport"})

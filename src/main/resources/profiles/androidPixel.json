@@ -1,6 +1,6 @@
 {
   "platformName": "Android",
-  "deviceName": "Pixel 3a",
+  "deviceName": "Pixel 8 Pro",
   "automationName": "UiAutomator2",
   "udid": "emulator-5554"
 }
