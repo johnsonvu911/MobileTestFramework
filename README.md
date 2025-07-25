@@ -51,6 +51,7 @@ src/
 | `Reporter.java`              | Handles custom test execution reporting                        |
 | `RetryAnalyzer.java`         | Automatically retries failed tests                             |
 | `AppHelper.java`             | App-level utility methods                                      |
+| `HttpRequester.java`         |	Provides reusable HTTP client utilities to send GET, POST, PUT requests for API interactions |
 | `AppConfig.properties`       | Global configuration file                                      |
 | `.json` files in `profiles/` | Device-specific configurations                                 |
 | `screens/*.java`             | Page Object Models representing app screens                    |
@@ -69,6 +70,9 @@ src/
 * **Retry & Logging**: Supports automatic retry of failed tests and detailed logs via `log4j2`
 * **Device Profiles**: Allows multi-device test execution via JSON configuration
 * **Reporting**: Extensible for reporting tools like ExtentReports or Allure
+* **API Testing Support**: The HttpRequester utility enables simple HTTP calls (GET, POST, PUT) using Java 11's HttpClient, supporting use cases like pre-test setup, backend validation, or hybrid API + UI tests.
+
+
 
 ## 🛠 Suggested Roadmap (Optional Enhancements)
 
