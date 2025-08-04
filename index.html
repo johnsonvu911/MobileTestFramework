@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Johnson Vu | Mobile Test Framework</title>
+  <title>Johnson Vu | Web Automation Framework</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
@@ -14,17 +13,17 @@
       color: #1e1e2f;
     }
     header {
-      background: linear-gradient(to right, #0f172a, #1e3a8a);
+      background: #1f2937;
       color: white;
-      padding: 6rem 2rem;
+      padding: 2rem;
       text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
     header p {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       margin-top: 0.5rem;
     }
     .container {
@@ -68,37 +67,78 @@
 <body>
   <header>
     <h1>Johnson Vu</h1>
-    <p>Custom Mobile Test Framework | Java + Appium + TestNG</p>
+    <p>Custom Web Automation Framework | Java + Selenium + TestNG</p>
   </header>
   <main class="container">
     <h2>🔍 Project Overview</h2>
-    <p>A custom mobile automation framework built for both Android & iOS platforms. Designed with scalability, reusability, and CI/CD integration in mind.</p>
+    <p>This is a custom-built, scalable Web Automation Framework designed for robust, maintainable testing across web platforms.</p>
 
     <h2>🚀 Key Features</h2>
     <ul>
-      <li>Java-based Appium framework with TestNG integration</li>
-      <li>Flexible device profiles (JSON-based config)</li>
-      <li>Support for hybrid, native apps</li>
-      <li>Robust reporting via ExtentReports/TestNG</li>
-      <li>Retry logic, logging, and test listeners</li>
+      <li>Java + Selenium WebDriver + TestNG base architecture</li>
+      <li>Page Object Model with clear separation of concerns</li>
+      <li>Cross-browser execution support</li>
+      <li>Reusable actions and test utilities</li>
+      <li>Integrated test reports & logs</li>
     </ul>
 
     <h2>🛠 Tech Stack</h2>
     <ul>
       <li>Java</li>
-      <li>Appium</li>
+      <li>Selenium WebDriver</li>
       <li>TestNG</li>
       <li>Log4j</li>
       <li>Maven</li>
     </ul>
 
     <div class="cta">
-      <a href="https://github.com/johnsonvu911/MobileTestFramework" target="_blank">🔗 View GitHub Repository</a>
+      <a id="githubLink" href="https://github.com/johnsonvu911/WebATFramework" target="_blank">🔗 View GitHub Repository</a>
     </div>
+    <script>
+  const FORM_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScZcGd-jnZ__yQVPd-rxqQGL1_TcwusdrjUJ6UZs82ebdNWgA/formResponse";
+
+  async function logClick() {
+    try {
+      // Get IP from cloudflare 
+      const traceText = await fetch('https://www.cloudflare.com/cdn-cgi/trace').then(r => r.text());
+      const ip = traceText.split('\n').find(l => l.startsWith('ip='))?.split('=')[1]?.trim();
+      
+      // Fetch location data from ipapi.co
+      let location = 'N/A';
+      try {
+        const response = await fetch(`https://ipapi.co/${ip}/json/`);
+        const data = await response.json();
+        if (data && !data.error) {
+          location = `${data.city}, ${data.region}, ${data.country_name}`;
+        }
+      } catch (err) {
+        console.warn('Failed to fetch location from ipapi.co:', err);
+      }
+      const now = new Date().toISOString();
+
+      const form = new URLSearchParams();
+      form.append('entry.1456666102', 'github'); // link
+      form.append('entry.980889110', ip); // ip
+      form.append('entry.1721037471', location); // location (optional)
+      form.append('entry.195366759', navigator.userAgent); // userAgent
+      form.append('entry.1386811845', document.referrer || 'direct'); // referrer
+
+      fetch(FORM_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: form
+      });
+    } catch (err) {
+      console.error('Logging failed:', err);
+    }
+  }
+
+  document.getElementById('githubLink').addEventListener('click', logClick);
+</script>
   </main>
 
   <footer>
-    © 2025 Johnson Vu. Designed for cross-platform QA excellence.
+    © 2025 Johnson Vu. Built with ❤️ for quality and clarity.
   </footer>
 </body>
 </html>
